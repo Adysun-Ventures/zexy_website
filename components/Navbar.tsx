@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Zap } from "lucide-react";
+import Image from "next/image";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -40,42 +40,17 @@ export default function Navbar() {
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "0.5rem",
             textDecoration: "none",
           }}
         >
-          <div
-            style={{
-              width: "2rem",
-              height: "2rem",
-              borderRadius: "0.625rem",
-              background: "linear-gradient(135deg, #8b5cf6, #ec4899)",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Zap size={14} color="white" fill="white" />
-          </div>
-          <span
-            style={{
-              fontSize: "1.25rem",
-              fontWeight: 800,
-              letterSpacing: "-0.02em",
-              color: "#f4f4f8",
-            }}
-          >
-            Zexy
-            <span
-              style={{
-                background: "linear-gradient(135deg, #8b5cf6, #ec4899)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              .live
-            </span>
-          </span>
+          <Image
+            src="/zexy_logo_nobg.png"
+            alt="Zexy logo"
+            width={36}
+            height={36}
+            priority
+            style={{ objectFit: "contain", display: "block" }}
+          />
         </a>
 
         {/* Desktop nav */}
