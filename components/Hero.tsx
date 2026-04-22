@@ -13,7 +13,7 @@ export default function Hero() {
         justifyContent: "center",
         position: "relative",
         overflow: "hidden",
-        paddingTop: "4.5rem",
+        paddingTop: "3.75rem",
       }}
     >
       {/* Background orbs */}
@@ -55,7 +55,7 @@ export default function Hero() {
         style={{
           maxWidth: "1200px",
           margin: "0 auto",
-          padding: "5rem 1.5rem",
+          padding: "3rem 1.25rem",
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
           gap: "4rem",
@@ -308,6 +308,7 @@ export default function Hero() {
 
           {/* Floating notification cards */}
           <div
+            className="hero-float-card"
             style={{
               position: "absolute",
               top: "15%",
@@ -327,6 +328,7 @@ export default function Hero() {
           </div>
 
           <div
+            className="hero-float-card"
             style={{
               position: "absolute",
               bottom: "20%",
@@ -352,10 +354,15 @@ export default function Hero() {
           .hero-grid {
             grid-template-columns: 1fr !important;
             text-align: center;
-            gap: 3rem !important;
+            gap: 2rem !important;
+            padding: 2rem 1.25rem !important;
           }
           .hero-mockup {
             order: -1;
+            margin: 0 auto;
+          }
+          .hero-float-card {
+            display: none !important;
           }
         }
       `}</style>
