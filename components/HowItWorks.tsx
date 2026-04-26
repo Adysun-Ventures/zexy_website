@@ -1,29 +1,31 @@
 "use client";
 
+import { User, DollarSign, Link, Rocket, Clock, Zap } from "lucide-react";
+
 const steps = [
   {
     number: "01",
     title: "Create Your Profile",
     desc: "Set up your Zexy creator profile in under 2 minutes. Add your bio, niche, and profile photo.",
-    emoji: "👤",
+    icon: User,
   },
   {
     number: "02",
     title: "Set Your Pricing",
     desc: "You're in control. Choose your subscription tiers, message rates, and live stream pricing.",
-    emoji: "💲",
+    icon: DollarSign,
   },
   {
     number: "03",
     title: "Share Your Link",
     desc: "Drop your Zexy link in your bio across all social platforms. One link, all your income streams.",
-    emoji: "🔗",
+    icon: Link,
   },
   {
     number: "04",
     title: "Start Earning",
     desc: "Watch payments flow in. Get paid out directly to your bank — no delays, no gatekeeping.",
-    emoji: "🚀",
+    icon: Rocket,
   },
 ];
 
@@ -59,8 +61,9 @@ export default function HowItWorks() {
       >
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "4.5rem" }}>
-          <div className="section-label" style={{ display: "inline-flex" }}>
-            ⚡ How It Works
+          <div className="section-label" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+            <Zap size={20} />
+            How It Works
           </div>
           <h2
             style={{
@@ -112,7 +115,7 @@ export default function HowItWorks() {
             }}
           />
 
-          {steps.map(({ number, title, desc, emoji }, index) => (
+          {steps.map(({ number, title, desc, icon: Icon }, index) => (
             <div
               key={number}
               className="glass-card"
@@ -139,7 +142,7 @@ export default function HowItWorks() {
                   position: "relative",
                 }}
               >
-                <span style={{ fontSize: "1.5rem" }}>{emoji}</span>
+                <Icon size={24} color="#8b5cf6" />
                 {/* Step number badge */}
                 <div
                   style={{
@@ -202,7 +205,7 @@ export default function HowItWorks() {
               color: "var(--text-secondary)",
             }}
           >
-            <span style={{ color: "#8b5cf6", fontWeight: 700 }}>⏱</span>
+            <Clock size={16} color="#8b5cf6" />
             Average setup time:{" "}
             <span style={{ color: "var(--text-primary)", fontWeight: 700 }}>
               Under 5 minutes

@@ -1,10 +1,12 @@
 "use client";
 
+import { User, Video, MessageCircle, DollarSign, Eye, Flame, Heart, Smartphone } from "lucide-react";
+
 const screens = [
   {
     title: "Creator Profile",
     desc: "Your public face — bio, tiers, and a convert-ready link",
-    emoji: "👤",
+    icon: User,
     accent: "#8b5cf6",
     preview: (
       <div style={{ padding: "1rem" }}>
@@ -64,7 +66,7 @@ const screens = [
   {
     title: "Live Stream",
     desc: "Gated live sessions with real-time tips and viewer count",
-    emoji: "🎥",
+    icon: Video,
     accent: "#ec4899",
     preview: (
       <div style={{ padding: "0" }}>
@@ -80,7 +82,7 @@ const screens = [
             borderRadius: "0.5rem 0.5rem 0 0",
           }}
         >
-          <div style={{ fontSize: "2rem" }}>🎥</div>
+          <Video size={32} color="#ec4899" />
           {/* LIVE badge */}
           <div
             style={{
@@ -112,19 +114,22 @@ const screens = [
               borderRadius: "9999px",
             }}
           >
-            👁 1,247
+            <Eye size={14} color="#f4f4f8" /> 1,247
           </div>
         </div>
         {/* Chat area */}
         <div style={{ padding: "0.75rem" }}>
           {[
-            { user: "fan001", msg: "Amazing stream! 🔥", color: "#8b5cf6" },
-            { user: "jane_x", msg: "Sent $20 tip ❤️", color: "#ec4899" },
-            { user: "creator_fan", msg: "You're incredible!", color: "#06b6d4" },
-          ].map(({ user, msg, color }) => (
+            { user: "fan001", msg: "Amazing stream!", icon: Flame, color: "#8b5cf6" },
+            { user: "jane_x", msg: "Sent $20 tip", icon: Heart, color: "#ec4899" },
+            { user: "creator_fan", msg: "You're incredible!", icon: null, color: "#06b6d4" },
+          ].map(({ user, msg, icon: Icon, color }) => (
             <div key={user} style={{ marginBottom: "0.375rem" }}>
               <span style={{ fontSize: "0.625rem", fontWeight: 700, color }}>{user}: </span>
-              <span style={{ fontSize: "0.625rem", color: "#9898b0" }}>{msg}</span>
+              <span style={{ fontSize: "0.625rem", color: "#9898b0", display: "inline-flex", alignItems: "center", gap: "0.25rem" }}>
+                {msg}
+                {Icon && <Icon size={12} />}
+              </span>
             </div>
           ))}
         </div>
@@ -134,15 +139,15 @@ const screens = [
   {
     title: "Chat Interface",
     desc: "Pay-to-message inbox with quick replies and emoji reactions",
-    emoji: "💬",
+    icon: MessageCircle,
     accent: "#06b6d4",
     preview: (
       <div style={{ padding: "0.75rem" }}>
         {/* Message thread */}
         {[
-          { from: "fan", msg: "Hey! Huge fan of your work 👋", paid: "$5" },
-          { from: "creator", msg: "Thanks so much! What can I help you with?", paid: null },
-          { from: "fan", msg: "Would love your skincare routine!", paid: "$10" },
+          { from: "fan", msg: "Hey! Huge fan of your work", icon: null, paid: "$5" },
+          { from: "creator", msg: "Thanks so much! What can I help you with?", icon: null, paid: null },
+          { from: "fan", msg: "Would love your skincare routine!", icon: null, paid: "$10" },
         ].map(({ from, msg, paid }, i) => (
           <div
             key={i}
@@ -176,7 +181,7 @@ const screens = [
   {
     title: "Earnings Dashboard",
     desc: "Real-time revenue tracking across all your income streams",
-    emoji: "💰",
+    icon: DollarSign,
     accent: "#f59e0b",
     preview: (
       <div style={{ padding: "0.875rem" }}>
@@ -232,8 +237,9 @@ export default function Showcase() {
       <div style={{ maxWidth: "1200px", margin: "0 auto", position: "relative", zIndex: 1 }}>
         {/* Header */}
         <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-          <div className="section-label" style={{ display: "inline-flex" }}>
-            📱 Platform Preview
+          <div className="section-label" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+            <Smartphone size={20} />
+            Platform Preview
           </div>
           <h2
             style={{
@@ -270,7 +276,7 @@ export default function Showcase() {
           }}
           className="showcase-grid"
         >
-          {screens.map(({ title, desc, preview }) => (
+          {screens.map(({ title, desc, icon: Icon, preview }) => (
             <div
               key={title}
               className="glass-card"

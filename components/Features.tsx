@@ -1,6 +1,6 @@
 "use client";
 
-import { DollarSign, MessageCircle, Radio, Users } from "lucide-react";
+import { DollarSign, MessageCircle, Radio, Users, Smartphone, Home } from "lucide-react";
 
 const features = [
   {
@@ -45,8 +45,9 @@ export default function Features() {
     >
       {/* Header */}
       <div style={{ textAlign: "center", marginBottom: "4rem" }}>
-        <div className="section-label" style={{ display: "inline-flex" }}>
-          💰 Monetization
+        <div className="section-label" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+          <DollarSign size={20} />
+          Monetization
         </div>
         <h2
           style={{
@@ -200,11 +201,11 @@ export default function Features() {
           }}
         >
           {[
-            { emoji: "📱", text: "Earn from subscriptions" },
-            { emoji: "💬", text: "Get paid for messages" },
-            { emoji: "🎥", text: "Host paid live streams" },
-            { emoji: "🏡", text: "Build your community" },
-          ].map(({ emoji, text }) => (
+            { icon: Smartphone, text: "Earn from subscriptions" },
+            { icon: MessageCircle, text: "Get paid for messages" },
+            { icon: Radio, text: "Host paid live streams" },
+            { icon: Home, text: "Build your community" },
+          ].map(({ icon: Icon, text }) => (
             <div
               key={text}
               style={{
@@ -217,7 +218,7 @@ export default function Features() {
                 gap: "0.75rem",
               }}
             >
-              <span style={{ fontSize: "1.25rem" }}>{emoji}</span>
+              <Icon size={20} color="#8b5cf6" />
               <span style={{ fontSize: "0.875rem", color: "var(--text-secondary)", fontWeight: 500 }}>
                 {text}
               </span>

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Lock, Zap, DollarSign } from "lucide-react";
 
 export default function CTA() {
   return (
@@ -145,10 +145,10 @@ export default function CTA() {
           }}
         >
           {[
-            { icon: "🔒", text: "No credit card required" },
-            { icon: "⚡", text: "Setup in 5 minutes" },
-            { icon: "💸", text: "First payout in 7 days" },
-          ].map(({ icon, text }) => (
+            { icon: Lock, text: "No credit card required" },
+            { icon: Zap, text: "Setup in 5 minutes" },
+            { icon: DollarSign, text: "First payout in 7 days" },
+          ].map(({ icon: Icon, text }) => (
             <div
               key={text}
               style={{
@@ -159,7 +159,7 @@ export default function CTA() {
                 color: "var(--text-muted)",
               }}
             >
-              <span>{icon}</span>
+              <Icon size={16} color="var(--text-muted)" />
               <span>{text}</span>
             </div>
           ))}

@@ -1,14 +1,16 @@
 "use client";
 
+import { Rocket, Zap, Heart, Lock, Smartphone, DollarSign, Target, Globe } from "lucide-react";
+
 const items = [
-  "🚀 $2M+ paid to creators",
-  "⚡ First payout in 7 days",
-  "💜 50,000+ active creators",
-  "🔒 Your data, your audience",
-  "📱 Works on any device",
-  "💸 Multiple income streams",
-  "🎯 Zero algorithm dependency",
-  "🌍 Payouts to 100+ countries",
+  { icon: Rocket, text: "$2M+ paid to creators" },
+  { icon: Zap, text: "First payout in 7 days" },
+  { icon: Heart, text: "50,000+ active creators" },
+  { icon: Lock, text: "Your data, your audience" },
+  { icon: Smartphone, text: "Works on any device" },
+  { icon: DollarSign, text: "Multiple income streams" },
+  { icon: Target, text: "Zero algorithm dependency" },
+  { icon: Globe, text: "Payouts to 100+ countries" },
 ];
 
 export default function Ticker() {
@@ -25,7 +27,7 @@ export default function Ticker() {
       }}
     >
       <div className="marquee-track">
-        {doubled.map((item, i) => (
+        {doubled.map(({ icon: Icon, text }, i) => (
           <span
             key={i}
             style={{
@@ -36,9 +38,11 @@ export default function Ticker() {
               fontWeight: 600,
               color: "var(--text-secondary)",
               padding: "0 2.5rem",
+              gap: "0.5rem",
             }}
           >
-            {item}
+            <Icon size={16} color="var(--text-secondary)" />
+            {text}
             <span
               style={{
                 display: "inline-block",

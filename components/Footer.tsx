@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { X, Instagram, Music, Briefcase, Heart } from "lucide-react";
 
 const footerLinks = {
   Product: ["Features", "Pricing", "How It Works", "Changelog"],
@@ -15,10 +16,10 @@ const footerLinks = {
 };
 
 const socials = [
-  { label: "X (Twitter)", icon: "𝕏", href: "#" },
-  { label: "Instagram", icon: "📷", href: "#" },
-  { label: "TikTok", icon: "🎵", href: "#" },
-  { label: "LinkedIn", icon: "💼", href: "#" },
+  { label: "X (Twitter)", icon: X, href: "#" },
+  { label: "Instagram", icon: Instagram, href: "#" },
+  { label: "TikTok", icon: Music, href: "#" },
+  { label: "LinkedIn", icon: Briefcase, href: "#" },
 ];
 
 export default function Footer() {
@@ -77,7 +78,7 @@ export default function Footer() {
 
             {/* Social icons */}
             <div style={{ display: "flex", gap: "0.625rem" }}>
-              {socials.map(({ label, icon, href }) => (
+              {socials.map(({ label, icon: Icon, href }) => (
                 <a
                   key={label}
                   href={href}
@@ -105,7 +106,7 @@ export default function Footer() {
                     e.currentTarget.style.background = "var(--bg-card)";
                   }}
                 >
-                  {icon}
+                  <Icon size={18} />
                 </a>
               ))}
             </div>
@@ -189,7 +190,7 @@ export default function Footer() {
             }}
           >
             Made with{" "}
-            <span style={{ color: "#ec4899" }}>♥</span>
+            <Heart size={14} color="#ec4899" fill="#ec4899" />
             {" "}for creators everywhere
           </p>
         </div>

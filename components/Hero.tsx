@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, Play } from "lucide-react";
+import { ArrowRight, Play, Home, MessageCircle, Video, DollarSign, Star, PartyPopper, Heart } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -128,8 +128,8 @@ export default function Hero() {
             {[
               { value: "50K+", label: "Active Creators" },
               { value: "$2M+", label: "Paid Out" },
-              { value: "4.9★", label: "Creator Rating" },
-            ].map(({ value, label }) => (
+              { value: "4.9", label: "Creator Rating", icon: Star },
+            ].map(({ value, label, icon: Icon }) => (
               <div key={label}>
                 <div
                   style={{
@@ -137,9 +137,13 @@ export default function Hero() {
                     fontWeight: 800,
                     color: "var(--text-primary)",
                     letterSpacing: "-0.02em",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.25rem",
                   }}
                 >
                   {value}
+                  {Icon && <Icon size={20} color="#f59e0b" />}
                 </div>
                 <div style={{ fontSize: "0.8125rem", color: "var(--text-muted)", fontWeight: 500 }}>
                   {label}
@@ -291,16 +295,20 @@ export default function Hero() {
                 justifyContent: "space-around",
               }}
             >
-              {["🏠", "💬", "🎥", "💰"].map((icon, i) => (
+              {[
+                { icon: Home, active: false },
+                { icon: MessageCircle, active: false },
+                { icon: Video, active: false },
+                { icon: DollarSign, active: true },
+              ].map(({ icon: Icon, active }, i) => (
                 <div
                   key={i}
                   style={{
-                    fontSize: "1.125rem",
-                    opacity: i === 3 ? 1 : 0.4,
+                    opacity: active ? 1 : 0.4,
                     cursor: "pointer",
                   }}
                 >
-                  {icon}
+                  <Icon size={20} />
                 </div>
               ))}
             </div>
@@ -323,7 +331,9 @@ export default function Hero() {
               animationDelay: "1s",
             }}
           >
-            <div style={{ fontSize: "0.6875rem", color: "#9898b0" }}>New subscriber 🎉</div>
+            <div style={{ fontSize: "0.6875rem", color: "#9898b0", display: "flex", alignItems: "center", gap: "0.25rem" }}>
+              New subscriber <PartyPopper size={14} />
+            </div>
             <div style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#f4f4f8" }}>+$29/mo</div>
           </div>
 
@@ -343,7 +353,9 @@ export default function Hero() {
               animationDelay: "2.5s",
             }}
           >
-            <div style={{ fontSize: "0.6875rem", color: "#9898b0" }}>Live stream tip 💜</div>
+            <div style={{ fontSize: "0.6875rem", color: "#9898b0", display: "flex", alignItems: "center", gap: "0.25rem" }}>
+              Live stream tip <Heart size={14} color="#ec4899" fill="#ec4899" />
+            </div>
             <div style={{ fontSize: "0.8125rem", fontWeight: 600, color: "#ec4899" }}>+$150</div>
           </div>
         </div>

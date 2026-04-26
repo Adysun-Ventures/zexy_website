@@ -1,35 +1,46 @@
 "use client";
 
-import { CheckCircle2 } from "lucide-react";
+import {
+  CheckCircle2,
+  Building2,
+  Radio,
+  DollarSign,
+  Handshake,
+  Wrench,
+  Globe,
+  Sparkles,
+  X,
+  Check,
+} from "lucide-react";
 
 const benefits = [
   {
-    emoji: "🏛️",
+    icon: Building2,
     title: "Own Your Audience",
     desc: "Your fan list is yours. Export, message, and connect — no platform can take it away.",
   },
   {
-    emoji: "📡",
+    icon: Radio,
     title: "No Algorithm Dependency",
     desc: "Stop begging the feed gods. Subscribers see your content because they chose to.",
   },
   {
-    emoji: "💸",
+    icon: DollarSign,
     title: "Recurring Income",
     desc: "Monthly subscriptions build a stable income baseline that grows month over month.",
   },
   {
-    emoji: "🤝",
+    icon: Handshake,
     title: "Direct Fan Connection",
     desc: "Talk to your fans directly. Build relationships that go beyond likes and comments.",
   },
   {
-    emoji: "🛠️",
+    icon: Wrench,
     title: "Built for Creators",
     desc: "Every feature is designed around creator needs — not advertisers, not brands.",
   },
   {
-    emoji: "🌐",
+    icon: Globe,
     title: "Works Alongside Everything",
     desc: "Use Zexy alongside Instagram, TikTok, YouTube, or X. It's additive, not exclusive.",
   },
@@ -57,7 +68,10 @@ export default function Benefits() {
         className="benefits-header"
       >
         <div>
-          <div className="section-label">✨ Why Zexy</div>
+          <div className="section-label" style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+            <Sparkles size={20} />
+            Why Zexy
+          </div>
           <h2
             style={{
               fontSize: "clamp(2rem, 4vw, 3rem)",
@@ -126,7 +140,7 @@ export default function Benefits() {
         }}
         className="benefits-grid"
       >
-        {benefits.map(({ emoji, title, desc }) => (
+        {benefits.map(({ icon: Icon, title, desc }) => (
           <div
             key={title}
             className="glass-card"
@@ -139,7 +153,7 @@ export default function Benefits() {
                 lineHeight: 1,
               }}
             >
-              {emoji}
+              <Icon size={32} color="#8b5cf6" />
             </div>
             <h3
               style={{
@@ -197,7 +211,8 @@ export default function Benefits() {
               gap: "0.5rem",
             }}
           >
-            ✗ Without Zexy
+            <X size={16} color="#ef4444" />
+            Without Zexy
           </div>
           {[
             "Algorithm controls your reach",
@@ -217,7 +232,7 @@ export default function Benefits() {
                 fontSize: "0.9rem",
               }}
             >
-              <span style={{ color: "#ef4444", flexShrink: 0 }}>✗</span>
+              <X size={16} color="#ef4444" style={{ flexShrink: 0 }} />
               {item}
             </div>
           ))}
@@ -242,7 +257,10 @@ export default function Benefits() {
               marginBottom: "1.25rem",
             }}
           >
-            ✓ With Zexy
+            <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
+              <Check size={16} color="#8b5cf6" />
+              With Zexy
+            </div>
           </div>
           {[
             "Direct subscriber access",
@@ -262,7 +280,7 @@ export default function Benefits() {
                 fontSize: "0.9rem",
               }}
             >
-              <span style={{ color: "#8b5cf6", flexShrink: 0 }}>✓</span>
+              <Check size={16} color="#8b5cf6" style={{ flexShrink: 0 }} />
               {item}
             </div>
           ))}
