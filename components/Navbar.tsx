@@ -23,8 +23,11 @@ export default function Navbar() {
 
   // Close menu on resize to desktop
   useEffect(() => {
-    if (!isMobile) setMenuOpen(false);
-  }, [isMobile]);
+    if (!isMobile && menuOpen) {
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setMenuOpen(false);
+    }
+  }, [isMobile, menuOpen]);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -36,6 +39,8 @@ export default function Navbar() {
     { label: "Features", href: "#features" },
     { label: "How It Works", href: "#how-it-works" },
     { label: "Benefits", href: "#benefits" },
+    { label: "Terms", href: "/terms-of-service" },
+    { label: "Privacy", href: "/privacy-policy" },
   ];
 
   const handleLinkClick = () => setMenuOpen(false);

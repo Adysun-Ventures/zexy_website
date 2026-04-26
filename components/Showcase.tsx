@@ -256,7 +256,7 @@ export default function Showcase() {
               lineHeight: 1.7,
             }}
           >
-            A polished platform your fans will love using and you'll love
+            A polished platform your fans will love using and you&apos;ll love
             getting paid from.
           </p>
         </div>
@@ -270,7 +270,7 @@ export default function Showcase() {
           }}
           className="showcase-grid"
         >
-          {screens.map(({ title, desc, accent, preview }) => (
+          {screens.map(({ title, desc, preview }) => (
             <div
               key={title}
               className="glass-card"

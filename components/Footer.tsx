@@ -6,7 +6,12 @@ const footerLinks = {
   Product: ["Features", "Pricing", "How It Works", "Changelog"],
   Company: ["About", "Blog", "Careers", "Press"],
   Support: ["Help Center", "Contact", "Status", "Community"],
-  Legal: ["Privacy", "Terms", "Cookie Policy", "GDPR"],
+  Legal: [
+    { label: "Privacy", href: "/privacy-policy" },
+    { label: "Terms", href: "/terms-of-service" },
+    { label: "Cookie Policy", href: "#" },
+    { label: "GDPR", href: "#" },
+  ],
 };
 
 const socials = [
@@ -128,26 +133,30 @@ export default function Footer() {
                   gap: "0.75rem",
                 }}
               >
-                {links.map((link) => (
-                  <a
-                    key={link}
-                    href="#"
-                    style={{
-                      fontSize: "0.9rem",
-                      color: "var(--text-muted)",
-                      textDecoration: "none",
-                      transition: "color 0.2s ease",
-                    }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--text-primary)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "var(--text-muted)")
-                    }
-                  >
-                    {link}
-                  </a>
-                ))}
+                {links.map((link) => {
+                  const href = typeof link === 'string' ? '#' : link.href;
+                  const label = typeof link === 'string' ? link : link.label;
+                  return (
+                    <a
+                      key={label}
+                      href={href}
+                      style={{
+                        fontSize: "0.9rem",
+                        color: "var(--text-muted)",
+                        textDecoration: "none",
+                        transition: "color 0.2s ease",
+                      }}
+                      onMouseEnter={(e) =>
+                        (e.currentTarget.style.color = "var(--text-primary)")
+                      }
+                      onMouseLeave={(e) =>
+                        (e.currentTarget.style.color = "var(--text-muted)")
+                      }
+                    >
+                      {label}
+                    </a>
+                  );
+                })}
               </div>
             </div>
           ))}

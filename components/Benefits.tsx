@@ -80,7 +80,7 @@ export default function Benefits() {
               marginBottom: "1.5rem",
             }}
           >
-            You've built an audience. You've put in the work. Now it's time for
+            You&apos;ve built an audience. You&apos;ve put in the work. Now it&apos;s time for
             that work to pay — literally. Zexy gives you the tools to convert
             attention into reliable income.
           </p>
