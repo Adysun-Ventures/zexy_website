@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { X, Instagram, Music, Briefcase, Heart } from "lucide-react";
+import { X, Camera, Music, Briefcase, Heart } from "lucide-react";
 
 const footerLinks = {
   Product: ["Features", "Pricing", "How It Works", "Changelog"],
@@ -17,7 +17,7 @@ const footerLinks = {
 
 const socials = [
   { label: "X (Twitter)", icon: X, href: "#" },
-  { label: "Instagram", icon: Instagram, href: "#" },
+  { label: "Instagram", icon: Camera, href: "#" },
   { label: "TikTok", icon: Music, href: "#" },
   { label: "LinkedIn", icon: Briefcase, href: "#" },
 ];
